@@ -1,0 +1,9 @@
+CREATE TABLE usuarios (
+    id BIGINT PRIMARY KEY,
+    id_sso VARCHAR(100) NOT NULL UNIQUE,
+    nome VARCHAR(150),
+    email VARCHAR(150) NOT NULL UNIQUE,
+    perfil VARCHAR(20) , -- USUARIO | ADMIN
+    data_criacao TIMESTAMP NOT NULL,
+    ultimo_login TIMESTAMP
+)
