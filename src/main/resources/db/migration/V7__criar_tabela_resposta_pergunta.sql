@@ -1,5 +1,5 @@
 CREATE TABLE resposta_pergunta (
-    id BIGINT PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     tentativa_quiz_id BIGINT NOT NULL,
     pergunta_id BIGINT NOT NULL,
     opcao_resposta_id BIGINT, -- NULL = pulou

@@ -1,6 +1,8 @@
 package com.back_end.Quizz.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(
@@ -12,6 +14,8 @@ import jakarta.persistence.*;
                 )
         }
 )
+@Getter
+@Setter
 public class OpcaoResposta {
 
     @Id

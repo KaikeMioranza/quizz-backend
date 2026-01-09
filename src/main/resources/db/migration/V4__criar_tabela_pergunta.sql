@@ -1,5 +1,5 @@
 CREATE TABLE pergunta (
-    id BIGINT PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     quiz_id BIGINT NOT NULL,
     enunciado TEXT NOT NULL,
     tempo_limite_segundos INT NOT NULL,

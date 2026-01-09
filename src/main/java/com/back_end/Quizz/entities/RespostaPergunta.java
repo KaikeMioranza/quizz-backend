@@ -3,6 +3,8 @@ package com.back_end.Quizz.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.Constraint;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
@@ -16,6 +18,8 @@ import java.sql.Timestamp;
             )
         }
 )
+@Getter
+@Setter
 public class RespostaPergunta {
 
 

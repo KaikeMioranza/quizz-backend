@@ -1,5 +1,5 @@
 CREATE TABLE aviso_importante (
-    id BIGINT PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(200) NOT NULL,
     mensagem TEXT NOT NULL,
     severidade VARCHAR(20) NOT NULL, -- INFO | ALERTA | CRITICO

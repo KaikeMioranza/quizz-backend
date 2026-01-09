@@ -1,5 +1,5 @@
 CREATE TABLE tentativa_quiz (
-    id BIGINT PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     quiz_id BIGINT NOT NULL,
     usuario_id BIGINT NOT NULL,
     data_inicio TIMESTAMP NOT NULL,

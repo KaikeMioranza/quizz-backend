@@ -1,5 +1,5 @@
 CREATE TABLE transacao_credito (
-    id BIGINT PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     usuario_id BIGINT NOT NULL,
     tentativa_quiz_id BIGINT,
     valor INT NOT NULL,

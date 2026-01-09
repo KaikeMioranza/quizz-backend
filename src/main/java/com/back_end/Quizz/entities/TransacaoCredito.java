@@ -3,12 +3,16 @@ package com.back_end.Quizz.entities;
 
 import com.back_end.Quizz.entities.enums.TipoTransacao;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "transacaco_credito")
+@Getter
+@Setter
 public class TransacaoCredito {
 
     @Id

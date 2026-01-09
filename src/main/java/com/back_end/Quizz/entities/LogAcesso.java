@@ -2,11 +2,15 @@ package com.back_end.Quizz.entities;
 
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name= "log_acesso_usuario")
+@Getter
+@Setter
 public class LogAcesso {
 
     @Id

@@ -2,11 +2,15 @@ package com.back_end.Quizz.entities;
 
 import com.back_end.Quizz.entities.enums.TipoPerfil;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "usuarios")
+@Getter
+@Setter
 public class Usuario {
 
     @Id

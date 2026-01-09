@@ -2,11 +2,15 @@ package com.back_end.Quizz.entities;
 
 import com.back_end.Quizz.entities.enums.StatusPergunta;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "tentativa_quiz")
+@Getter
+@Setter
 public class TentativaQuiz {
 
     @Id

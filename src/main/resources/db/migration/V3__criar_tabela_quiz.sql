@@ -1,5 +1,5 @@
 CREATE TABLE quiz (
-    id BIGINT PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(200) NOT NULL,
     descricao TEXT,
     categoria VARCHAR(100),

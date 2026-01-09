@@ -1,5 +1,5 @@
 CREATE TABLE opcao_resposta (
-    id BIGINT PRIMARY KEY,
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
     pergunta_id BIGINT NOT NULL,
     descricao TEXT NOT NULL,
     correta BOOLEAN NOT NULL,
