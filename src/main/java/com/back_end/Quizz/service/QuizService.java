@@ -3,6 +3,7 @@ package com.back_end.Quizz.service;
 import com.back_end.Quizz.dto.CriarOpcaoRespostaDTO;
 import com.back_end.Quizz.dto.CriarPerguntaDTO;
 import com.back_end.Quizz.dto.CriarQuizDTO;
+import com.back_end.Quizz.projection.PerguntaQuiz;
 import com.back_end.Quizz.entities.OpcaoResposta;
 import com.back_end.Quizz.entities.Pergunta;
 import com.back_end.Quizz.entities.Quiz;
@@ -11,6 +12,8 @@ import com.back_end.Quizz.repository.PerguntaRepository;
 import com.back_end.Quizz.repository.QuizRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -69,4 +72,14 @@ public class QuizService {
             }
         }
     }
+    public List<PerguntaQuiz> obterQuiz() {
+        List<PerguntaQuiz> perguntas = quizRepository.QuizDisponivel();
+
+        if (perguntas.isEmpty()) {
+            throw new RuntimeException("Nenhum quiz disponível");
+        }
+
+        return perguntas;
+    }
+
 }
