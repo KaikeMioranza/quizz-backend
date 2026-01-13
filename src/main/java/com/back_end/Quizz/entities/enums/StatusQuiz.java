@@ -1,6 +1,6 @@
 package com.back_end.Quizz.entities.enums;
 
-public enum StatusPergunta {
+public enum StatusQuiz {
     EM_ANDAMENTO,
     FINALIZADO,
     EXPIRADO

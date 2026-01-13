@@ -1,6 +1,6 @@
 package com.back_end.Quizz.entities;
 
-import com.back_end.Quizz.entities.enums.StatusPergunta;
+import com.back_end.Quizz.entities.enums.StatusQuiz;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -39,8 +39,9 @@ public class TentativaQuiz {
     @Column(name= "data_fim")
     private Timestamp dataFim;
 
+    @Enumerated(EnumType.STRING)
     @Column(length = 20, nullable = false)
-    private StatusPergunta status;
+    private StatusQuiz status;
 
     @Column(name = "total_acertos")
     private int totalAcertos;

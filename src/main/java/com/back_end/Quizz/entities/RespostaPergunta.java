@@ -33,7 +33,7 @@ public class RespostaPergunta {
             nullable = false,
             foreignKey = @ForeignKey(name = "fk_resposta_tentativa")
     )
-    private Quiz quiz;
+    private TentativaQuiz tentativaQuiz;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(
