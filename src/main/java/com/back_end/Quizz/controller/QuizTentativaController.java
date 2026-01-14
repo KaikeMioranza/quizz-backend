@@ -1,14 +1,12 @@
 package com.back_end.Quizz.controller;
 
 import com.back_end.Quizz.dto.CriarTentativaQuizDTO;
+import com.back_end.Quizz.dto.FinalizarTentativaQuizDTO;
 import com.back_end.Quizz.service.TentativaQuizService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/QuizTentativa")
@@ -26,4 +24,6 @@ public class QuizTentativaController {
 
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
+
 }

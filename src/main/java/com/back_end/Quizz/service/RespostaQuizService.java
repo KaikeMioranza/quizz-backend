@@ -20,16 +20,20 @@ public class RespostaQuizService {
     private final TentativaQuizRepository tentativaQuizRepository;
     private final OpcaoRespostaRepository opcaoRespostaRepository;
     private final PerguntaRepository perguntaRepository;
+    private final TentativaQuizService tentativaQuizService;
+
     public RespostaQuizService(
             RespostaPerguntaRepository respostaPerguntaRepository,
             TentativaQuizRepository tentativaQuizRepository,
             OpcaoRespostaRepository opcaoRespostaRepository,
-            PerguntaRepository perguntaRepository
+            PerguntaRepository perguntaRepository,
+            TentativaQuizService tentativaQuizService
     ) {
         this.respostaPerguntaRepository = respostaPerguntaRepository;
         this.tentativaQuizRepository = tentativaQuizRepository;
         this.opcaoRespostaRepository = opcaoRespostaRepository;
         this.perguntaRepository = perguntaRepository;
+        this.tentativaQuizService = tentativaQuizService;
     }
 
     public RespostaPergunta responderPergunta(CriarRespostaPerguntaDTO dto) {
@@ -42,14 +46,39 @@ public class RespostaQuizService {
         boolean correta = opcaoRespostaRepository
                 .findCorretaById(dto.getOpcaoRespostaId())
                 .orElseThrow(() -> new RuntimeException("Opção não encontrada"));
+        if (!opcaoResposta.getPergunta().getId().equals(pergunta.getId())) {
+            throw new RuntimeException("Opção não pertence à pergunta");
+        }
+        // ✅ Verifica se já respondeu
+        boolean jaRespondida = respostaPerguntaRepository
+                .existsByTentativaQuizAndPergunta(tentativa, pergunta);
+        if (jaRespondida) {
+            throw new RuntimeException("Pergunta já respondida");
+        }
 
 
-        RespostaPergunta respP = new RespostaPergunta();
-        respP.setTentativaQuiz(tentativa);
-        respP.setPergunta(pergunta);
-        respP.setOpcaoResposta(opcaoResposta);
-        respP.setCorreta(correta);
-        respP.setDataResposta(Timestamp.valueOf(LocalDateTime.now()));
-        return respostaPerguntaRepository.save(respP);
+        RespostaPergunta resp = new RespostaPergunta();
+        resp.setTentativaQuiz(tentativa);
+        resp.setPergunta(pergunta);
+        resp.setOpcaoResposta(opcaoResposta);
+        resp.setCorreta(correta);
+        resp.setDataResposta(Timestamp.valueOf(LocalDateTime.now()));
+        respostaPerguntaRepository.save(resp);
+
+        long totalPerguntas = perguntaRepository
+                .countPerguntasByQuizId(tentativa.getQuiz().getId());
+
+
+        long totalRespondidas = respostaPerguntaRepository
+                .countByTentativaQuizId(tentativa.getId());
+
+
+        if (totalRespondidas >= totalPerguntas) {
+            tentativaQuizService.finalizarTentativaQuiz(tentativa.getId());
+        }
+
+
+        return resp;
+
     }
 }
