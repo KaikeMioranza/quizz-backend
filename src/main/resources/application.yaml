@@ -1,8 +1,10 @@
 spring:
   application:
     name: Quizz
+  jackson:
+    time-zone: UTC
   datasource:
-    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?useSSL=false&serverTimezone=America/Sao_Paulo
     username: ${DB_USER}
     password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -13,6 +15,8 @@ spring:
     properties:
       hibernate:
         column_ordering_strategy: legacy
+        jdbc:
+          time_zone: UTC
   flyway:
     enabled: true
     baseline-on-version: 1

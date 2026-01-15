@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @Transactional
@@ -87,5 +88,16 @@ public class TentativaQuizService {
         tentativa.setCreditoGerado(false); // regra posterior pode alterar
 
         return tentativaQuizRepository.save(tentativa);
+    }
+
+    public List<TentativaQuiz> buscarTentativasQuiz(Long usuarioId) {
+
+        Usuario usuario = usuarioRepository.findById(usuarioId)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
+        return tentativaQuizRepository.findByUsuarioAndStatus(
+                usuario,
+                StatusQuiz.FINALIZADO
+        );
     }
 }

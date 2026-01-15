@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table
@@ -20,13 +22,16 @@ public class MensagemMotivacional {
     @Column(nullable = false)
     private String mensagem;
 
+    @Column
+    private Boolean ativo;
+
     @Column(name = "data_inicio", nullable = false)
-    private Date dataInicio;
+    private LocalDateTime dataInicio;
 
     @Column(name = "data_fim")
-    private Date dataFim;
+    private LocalDateTime dataFim;
 
     @Column
-    private Timestamp dataCriacao;
+    private LocalDateTime dataCriacao;
 
 }

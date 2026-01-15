@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Timestamp;
+
+import java.time.LocalDateTime;
+
 
 @Entity
 @Table(name = "aviso_importante")
@@ -23,20 +25,21 @@ public class AvisoImportante {
     @Column( nullable = false)
     private String mensagem;
 
+    @Enumerated(EnumType.STRING)
     @Column(length = 20, nullable = false)
     private Severidade severidade;
 
     @Column(name = "data_inicio",nullable = false)
-    private Timestamp dataInicio;
+    private LocalDateTime dataInicio;
 
     @Column(name = "data_fim")
-    private Timestamp dataFim;
+    private LocalDateTime dataFim;
 
     @Column
     private Boolean ativo;
 
     @Column(name = "data_criacao", nullable = false)
-    private Timestamp dataCriacao;
+    private LocalDateTime dataCriacao;
 
 
 }

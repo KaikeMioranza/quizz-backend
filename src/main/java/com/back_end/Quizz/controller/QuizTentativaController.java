@@ -1,12 +1,16 @@
 package com.back_end.Quizz.controller;
 
+import com.back_end.Quizz.dto.BuscarTentativaQuizDTO;
 import com.back_end.Quizz.dto.CriarTentativaQuizDTO;
 import com.back_end.Quizz.dto.FinalizarTentativaQuizDTO;
+import com.back_end.Quizz.entities.TentativaQuiz;
 import com.back_end.Quizz.service.TentativaQuizService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/QuizTentativa")
@@ -25,5 +29,14 @@ public class QuizTentativaController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @GetMapping
+    public ResponseEntity<List<TentativaQuiz>> buscarTentativasQuiz(
+            @RequestParam Long usuarioId) {
+
+        List<TentativaQuiz> tentativas =
+                tentativaQuizService.buscarTentativasQuiz(usuarioId);
+
+        return ResponseEntity.ok(tentativas);
+    }
 
 }

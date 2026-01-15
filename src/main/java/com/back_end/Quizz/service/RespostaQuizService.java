@@ -68,7 +68,6 @@ public class RespostaQuizService {
         long totalPerguntas = perguntaRepository
                 .countPerguntasByQuizId(tentativa.getQuiz().getId());
 
-
         long totalRespondidas = respostaPerguntaRepository
                 .countByTentativaQuizId(tentativa.getId());
 
