@@ -26,12 +26,12 @@ public class MensagemMotivacional {
     private Boolean ativo;
 
     @Column(name = "data_inicio", nullable = false)
-    private LocalDateTime dataInicio;
+    private Timestamp dataInicio;
 
     @Column(name = "data_fim")
-    private LocalDateTime dataFim;
+    private Timestamp dataFim;
 
     @Column
-    private LocalDateTime dataCriacao;
+    private Timestamp dataCriacao;
 
 }

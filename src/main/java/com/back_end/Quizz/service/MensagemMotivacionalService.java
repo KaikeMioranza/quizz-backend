@@ -7,6 +7,8 @@ import com.back_end.Quizz.repository.MensagemMotivacionalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -21,12 +23,12 @@ public class MensagemMotivacionalService {
 
     public MensagemMotivacional CriarMensagemMotivacional(CriarMensagemDTO dto) {
 
-        LocalDateTime agora =
-                LocalDateTime.now(ZoneId.of("America/Sao_Paulo"));
+        Timestamp agora = Timestamp.from(Instant.now());
 
-        LocalDateTime dataInicio = dto.getDataInicio();
+        Timestamp dataInicio = dto.getDataInicio();
 
-        boolean podeIniciar = !agora.isBefore(dataInicio);
+            // Comparação direta entre dois objetos Timestamp
+        boolean podeIniciar = !agora.before(dataInicio);
 
         MensagemMotivacional mm = new MensagemMotivacional();
 

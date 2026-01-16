@@ -21,20 +21,15 @@ public class AvisoImportanteService {
 
     public AvisoImportante CriarAvisoImportante(CriarAvisoImportanteDTO dto) {
 
-        LocalDateTime agora =
-                LocalDateTime.now(ZoneId.of("America/Sao_Paulo"));
 
-
-        LocalDateTime dataInicio = dto.getDataInicio();
-
-        boolean podeIniciar = !agora.isBefore(dataInicio);
+        Timestamp dataInicio = dto.getDataInicio();
 
         System.out.println("AGORA BR: " +
                 LocalDateTime.now(ZoneId.of("America/Sao_Paulo")));
 
+        Timestamp agora = Timestamp.valueOf(LocalDateTime.now());
 
-
-        boolean ativo = !agora.isBefore(dataInicio);
+        boolean ativo = !agora.toLocalDateTime().isBefore(dataInicio.toLocalDateTime());
 
         AvisoImportante avImp = new AvisoImportante();
 

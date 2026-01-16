@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 
@@ -30,16 +31,16 @@ public class AvisoImportante {
     private Severidade severidade;
 
     @Column(name = "data_inicio",nullable = false)
-    private LocalDateTime dataInicio;
+    private Timestamp dataInicio;
 
     @Column(name = "data_fim")
-    private LocalDateTime dataFim;
+    private Timestamp dataFim;
 
     @Column
     private Boolean ativo;
 
     @Column(name = "data_criacao", nullable = false)
-    private LocalDateTime dataCriacao;
+    private Timestamp dataCriacao;
 
 
 }

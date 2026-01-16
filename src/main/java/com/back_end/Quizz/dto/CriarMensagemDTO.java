@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -16,10 +17,10 @@ public class CriarMensagemDTO {
     String mensagem;
 
     @NotNull
-    LocalDateTime dataInicio;
+    Timestamp dataInicio;
 
     @NotNull
-    LocalDateTime dataFim;
+    Timestamp dataFim;
 
 
 }
