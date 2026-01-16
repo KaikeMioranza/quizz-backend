@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface TentativaQuizRepository extends JpaRepository<TentativaQuiz, Long> {
+public interface  TentativaQuizRepository extends JpaRepository<TentativaQuiz, Long> {
 
     boolean existsByQuizAndUsuario(Quiz quiz, Usuario usuario);
 

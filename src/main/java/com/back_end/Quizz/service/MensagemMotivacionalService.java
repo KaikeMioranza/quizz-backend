@@ -9,10 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MensagemMotivacionalService {
@@ -32,6 +31,7 @@ public class MensagemMotivacionalService {
 
         MensagemMotivacional mm = new MensagemMotivacional();
 
+        mm.setTitulo(dto.getTitulo());
         mm.setMensagem(dto.getMensagem());
         mm.setAtivo(podeIniciar);
         mm.setDataInicio(dto.getDataInicio());
@@ -40,6 +40,13 @@ public class MensagemMotivacionalService {
 
        return mensagemMotivacionalRepository.save(mm);
 
+    }
+
+    public Optional<MensagemMotivacional> BuscarMensagem() {
+
+        Timestamp hoje = Timestamp.from(Instant.now());
+
+        return mensagemMotivacionalRepository.buscarMensagensValidas(hoje);
     }
 
 

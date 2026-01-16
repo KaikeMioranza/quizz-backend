@@ -14,6 +14,9 @@ import java.time.LocalDateTime;
 public class CriarMensagemDTO {
 
     @NotNull
+    String titulo;
+
+    @NotNull
     String mensagem;
 
     @NotNull

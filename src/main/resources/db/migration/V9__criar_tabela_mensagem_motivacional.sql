@@ -1,5 +1,6 @@
 CREATE TABLE mensagem_motivacional (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    titulo TEXT NOT NULL,
     mensagem TEXT NOT NULL,
     ativo BOOLEAN NOT NULL,
     data_inicio DATE NOT NULL,

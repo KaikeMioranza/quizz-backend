@@ -20,6 +20,9 @@ public class MensagemMotivacional {
     private int id;
 
     @Column(nullable = false)
+    private String titulo;
+
+    @Column(nullable = false)
     private String mensagem;
 
     @Column
